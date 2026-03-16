@@ -1,0 +1,93 @@
+// =============================================================================
+// abstracts/_variables.scss
+// 전역 변수 정의 — 실제 CSS 출력 없음
+// 테마 색상은 themes/_dark.scss / _light.scss 에서 CSS Custom Properties로 관리
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Typography
+// -----------------------------------------------------------------------------
+$font-primary   : 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+$font-display   : 'Inter', sans-serif;   // 숫자, 영문 강조
+$font-mono      : 'JetBrains Mono', monospace; // 코드 블록
+
+// Font Size Scale
+$font-size-xs   : 0.75rem;   //  12px
+$font-size-sm   : 0.875rem;  //  14px
+$font-size-base : 1rem;      //  16px
+$font-size-lg   : 1.125rem;  //  18px
+$font-size-xl   : 1.25rem;   //  20px
+$font-size-2xl  : 1.5rem;    //  24px
+$font-size-3xl  : 2rem;      //  32px
+$font-size-4xl  : 2.25rem;   //  36px
+$font-size-hero : 4rem;      //  64px
+
+// Font Weight
+$font-weight-regular  : 400;
+$font-weight-medium   : 500;
+$font-weight-semibold : 600;
+$font-weight-bold     : 700;
+$font-weight-extrabold: 800;
+
+// Line Height
+$line-height-tight  : 1.3;
+$line-height-base   : 1.8;
+$line-height-loose  : 2;
+
+// -----------------------------------------------------------------------------
+// Spacing Scale (4px base)
+// -----------------------------------------------------------------------------
+$space-1  :  0.25rem;  //  4px
+$space-2  :  0.5rem;   //  8px
+$space-3  :  0.75rem;  // 12px
+$space-4  :  1rem;     // 16px
+$space-5  :  1.25rem;  // 20px
+$space-6  :  1.5rem;   // 24px
+$space-8  :  2rem;     // 32px
+$space-10 :  2.5rem;   // 40px
+$space-12 :  3rem;     // 48px
+$space-16 :  4rem;     // 64px
+$space-20 :  5rem;     // 80px
+$space-24 :  6rem;     // 96px
+
+// -----------------------------------------------------------------------------
+// Layout
+// -----------------------------------------------------------------------------
+$container-max   : 1200px;
+$container-pad   : $space-6;   // 좌우 기본 여백
+$container-pad-sm: $space-4;   // 모바일 좌우 여백
+
+// -----------------------------------------------------------------------------
+// Border
+// -----------------------------------------------------------------------------
+$border-radius-sm  : 4px;
+$border-radius-base: 8px;
+$border-radius-lg  : 12px;
+$border-radius-xl  : 16px;
+$border-radius-full: 9999px;
+
+// -----------------------------------------------------------------------------
+// Transition (모션 원칙)
+// 진입: 400ms / 인터랙션: 200ms / 테마전환: 300ms
+// -----------------------------------------------------------------------------
+$transition-enter : all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+$transition-action: all 200ms ease;
+$transition-theme : all 300ms ease;
+
+// -----------------------------------------------------------------------------
+// Breakpoints
+// -----------------------------------------------------------------------------
+$bp-xs  :  480px;
+$bp-sm  :  640px;
+$bp-md  :  768px;
+$bp-lg  : 1024px;
+$bp-xl  : 1280px;
+
+// -----------------------------------------------------------------------------
+// Z-index
+// -----------------------------------------------------------------------------
+$z-base   :   1;
+$z-dropdown:  10;
+$z-sticky :  100;
+$z-modal  : 1000;
+$z-toast  : 2000;

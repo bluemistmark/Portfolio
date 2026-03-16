@@ -1,0 +1,37 @@
+// =============================================================================
+// main.scss
+// 최종 Import 파일 — 순서 중요
+// =============================================================================
+
+// 1. Abstracts (코드 출력 없음 — 가장 먼저)
+@use "abstracts/variables";
+@use "abstracts/mixins";
+@use "abstracts/functions";
+
+// 2. Themes (CSS Custom Properties)
+@use "themes/dark";
+@use "themes/light";
+
+// 3. Base
+@use "base/reset";
+@use "base/typography";
+@use "base/common";
+
+// 4. Layout
+@use "layout/grid";
+@use "layout/header";
+@use "layout/footer";
+
+// 5. Components
+@use "components/button";
+@use "components/codeSlider";
+
+// 6. Modules
+// @use 'modules/...';  → 조합 모듈 추가 시 여기에
+
+// 7. Pages
+@use "pages/home";
+@use "pages/architecture";
+
+// 8. Vendors
+// @use 'vendors/...';  → 외부 라이브러리 커스텀 추가 시 여기에

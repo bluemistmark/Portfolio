@@ -1,0 +1,26 @@
+// =============================================================================
+// layout/_footer.scss
+// =============================================================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.footer {
+  padding-block: $space-8;
+  border-top: 1px solid var(--color-border);
+
+  &__inner {
+    @include container;
+    @include flex(center, space-between);
+
+    @include respond-to('md') {
+      flex-direction: column;
+      gap: $space-2;
+      text-align: center;
+    }
+  }
+
+  &__copy {
+    font-size: $font-size-sm;
+    color: var(--color-text-muted);
+  }
+}

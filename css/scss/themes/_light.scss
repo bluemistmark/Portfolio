@@ -1,0 +1,37 @@
+// =============================================================================
+// themes/_light.scss
+// 라이트모드 CSS Custom Properties
+// =============================================================================
+
+[data-theme="light"] {
+  // 배경
+  --color-bg        : #F8F9FC;
+  --color-surface   : #FFFFFF;
+  --color-surface-2 : #F1F3F9;
+
+  // 텍스트
+  --color-text      : #1A1D2E;
+  --color-text-muted: #6B7280;
+  --color-text-sub  : #4B5563;
+
+  // 브랜드
+  --color-primary   : #3B6EF8;
+  --color-primary-hover: #2B5CE8;
+
+  // 테두리
+  --color-border    : #E2E8F0;
+  --color-border-hover: #3B6EF8;
+
+  // 코드 블록
+  --color-code-bg   : #F1F3F9;
+  --color-code-text : #1A1D2E;
+
+  // 그림자
+  --shadow-sm : 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md : 0 4px 16px rgba(0, 0, 0, 0.10);
+  --shadow-lg : 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-primary: 0 4px 20px rgba(59, 110, 248, 0.20);
+
+  // 스크롤바
+  color-scheme: light;
+}

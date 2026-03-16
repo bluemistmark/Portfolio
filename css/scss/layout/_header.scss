@@ -1,0 +1,100 @@
+// =============================================================================
+// layout/_header.scss
+// 헤더 — 로고 + 내비게이션 + 테마 토글
+// =============================================================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-sticky;
+  padding-block: $space-4;
+  background-color: transparent;
+  transition: $transition-theme,
+              background-color 300ms ease,
+              box-shadow 300ms ease;
+
+  // S: 스크롤 시 배경 활성화
+  &.is-scrolled {
+    background-color: var(--color-bg);
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(12px);
+  }
+  // E: 스크롤 시 배경 활성화
+
+  &__inner {
+    @include container;
+    @include flex(center, space-between);
+  }
+
+  // S: 로고
+  &__logo {
+    font-family: $font-display;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+
+    span {
+      color: var(--color-primary);
+    }
+  }
+  // E: 로고
+
+  // S: 내비게이션
+  &__nav {
+    @include flex(center, flex-end);
+    gap: $space-8;
+
+    @include respond-to('md') {
+      display: none;
+    }
+  }
+
+  &__nav-link {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: var(--color-text-muted);
+    transition: $transition-action;
+
+    &:hover,
+    &.is-active {
+      color: var(--color-primary);
+    }
+  }
+  // E: 내비게이션
+
+  // S: 테마 토글 버튼
+  &__theme-toggle {
+    @include flex(center, center);
+    width: 36px;
+    height: 36px;
+    border-radius: $border-radius-full;
+    background-color: var(--color-surface);
+    color: var(--color-text-muted);
+    transition: $transition-action;
+    margin-left: $space-4;
+
+    &:hover {
+      color: var(--color-primary);
+      background-color: var(--color-surface-2);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    // S: 아이콘 전환 — 다크모드: 달, 라이트모드: 태양
+    .icon-sun  { display: none; }
+    .icon-moon { display: block; }
+  }
+  // E: 테마 토글 버튼
+}
+
+// S: 라이트모드 아이콘 전환
+[data-theme="light"] .header__theme-toggle {
+  .icon-sun  { display: block; }
+  .icon-moon { display: none; }
+}
+// E: 라이트모드 아이콘 전환

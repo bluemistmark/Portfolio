@@ -1,0 +1,96 @@
+// =============================================================================
+// base/_common.scss
+// 전역 공통 스타일 — body, a, 링크, 스크롤바 등
+// =============================================================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// -----------------------------------------------------------------------------
+// 컨테이너
+// -----------------------------------------------------------------------------
+.container {
+  @include container;
+}
+
+// -----------------------------------------------------------------------------
+// 섹션 공통
+// -----------------------------------------------------------------------------
+.section {
+  padding-block: $space-24;
+
+  @include respond-to('md') {
+    padding-block: $space-16;
+  }
+
+  @include respond-to('xs') {
+    padding-block: $space-12;
+  }
+}
+
+.section__title {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  color: var(--color-text);
+  margin-bottom: $space-4;
+
+  @include respond-to('md') {
+    font-size: $font-size-3xl;
+  }
+
+  @include respond-to('xs') {
+    font-size: $font-size-2xl;
+  }
+}
+
+.section__subtitle {
+  font-size: $font-size-lg;
+  color: var(--color-text-muted);
+  line-height: $line-height-base;
+
+  @include respond-to('xs') {
+    font-size: $font-size-base;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 스크롤바 커스텀
+// -----------------------------------------------------------------------------
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: $border-radius-full;
+
+  &:hover {
+    background: var(--color-primary);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 포커스 아웃라인 (접근성)
+// -----------------------------------------------------------------------------
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: $border-radius-sm;
+}
+
+// -----------------------------------------------------------------------------
+// 스크린리더 전용
+// -----------------------------------------------------------------------------
+.sr-only {
+  @include sr-only;
+}
+
+// -----------------------------------------------------------------------------
+// 스크롤 진입 애니메이션 공통
+// -----------------------------------------------------------------------------
+.fade-up {
+  @include fade-up-init;
+}

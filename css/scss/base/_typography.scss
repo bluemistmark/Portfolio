@@ -1,0 +1,46 @@
+// =============================================================================
+// base/_typography.scss
+// 웹폰트 로드 및 기본 타이포그래피
+// =============================================================================
+@use '../abstracts/variables' as *;
+
+// -----------------------------------------------------------------------------
+// 웹폰트 — Google Fonts CDN
+// Pretendard는 CDN 미제공, @font-face 또는 jsDelivr 사용
+// -----------------------------------------------------------------------------
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+// Pretendard (jsDelivr CDN)
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+
+// -----------------------------------------------------------------------------
+// 기본 타이포그래피
+// -----------------------------------------------------------------------------
+body {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  transition: $transition-theme;
+}
+
+// 숫자·영문 강조 — Inter 적용
+.font-display {
+  font-family: $font-display;
+}
+
+// 코드 — JetBrains Mono 적용
+code,
+pre,
+.font-mono {
+  font-family: $font-mono;
+}
+
+// 헤딩
+h1 { font-size: $font-size-4xl; font-weight: $font-weight-bold;     line-height: $line-height-tight; }
+h2 { font-size: $font-size-3xl; font-weight: $font-weight-bold;     line-height: $line-height-tight; }
+h3 { font-size: $font-size-2xl; font-weight: $font-weight-semibold; line-height: $line-height-tight; }
+h4 { font-size: $font-size-xl;  font-weight: $font-weight-semibold; line-height: $line-height-tight; }
+h5 { font-size: $font-size-lg;  font-weight: $font-weight-medium;   line-height: $line-height-tight; }
+h6 { font-size: $font-size-base;font-weight: $font-weight-medium;   line-height: $line-height-tight; }

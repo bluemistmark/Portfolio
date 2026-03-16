@@ -1,0 +1,42 @@
+// =============================================================================
+// layout/_grid.scss
+// 레이아웃 그리드 시스템
+// =============================================================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// -----------------------------------------------------------------------------
+// 기본 그리드
+// -----------------------------------------------------------------------------
+.grid {
+  display: grid;
+  gap: $space-6;
+
+  &--2 { grid-template-columns: repeat(2, 1fr); }
+  &--3 { grid-template-columns: repeat(3, 1fr); }
+  &--4 { grid-template-columns: repeat(4, 1fr); }
+
+  @include respond-to('md') {
+    &--2,
+    &--3,
+    &--4 { grid-template-columns: 1fr; }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 스탯 그리드 (Hero 수치 4개)
+// -----------------------------------------------------------------------------
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-6;
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('sm') {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-4;
+  }
+}

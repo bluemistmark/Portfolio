@@ -1,0 +1,361 @@
+// =============================================================================
+// pages/_home.scss
+// 홈(메인) 페이지 전용 스타일
+// =============================================================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// -----------------------------------------------------------------------------
+// S: Hero 섹션
+// -----------------------------------------------------------------------------
+.hero {
+  position: relative;
+  @include flex(center, center, column);
+  min-height: 100vh;
+  padding-block: $space-24;
+  overflow: hidden;
+  text-align: center;
+
+  // 배경 텍스처 (미세 노이즈 그리드)
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(59, 110, 248, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(59, 110, 248, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  &__label {
+    display: inline-block;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: var(--color-primary);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: $space-4;
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-size: clamp(2rem, 5vw, #{$font-size-hero});
+    font-weight: $font-weight-extrabold;
+    color: var(--color-text);
+    line-height: $line-height-tight;
+    letter-spacing: -0.03em;
+    margin-bottom: $space-6;
+  }
+
+  &__desc {
+    font-size: $font-size-lg;
+    color: var(--color-text-muted);
+    margin-bottom: $space-16;
+    max-width: 560px;
+  }
+
+  // S: 수치 그리드
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-6;
+    margin-bottom: $space-12;
+    width: 100%;
+    max-width: 800px;
+
+    @include respond-to('lg') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to('sm') {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $space-4;
+    }
+  }
+
+  &__stat {
+    padding: $space-6;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: $border-radius-lg;
+    transition: $transition-action;
+
+    &:hover {
+      border-color: var(--color-primary);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-primary);
+    }
+  }
+
+  &__stat-number {
+    font-family: $font-display;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-extrabold;
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: $space-2;
+  }
+
+  &__stat-label {
+    font-size: $font-size-sm;
+    color: var(--color-text-muted);
+  }
+  // E: 수치 그리드
+}
+// E: Hero 섹션
+
+// -----------------------------------------------------------------------------
+// S: Story 섹션
+// -----------------------------------------------------------------------------
+.story {
+  &__timeline {
+    position: relative;
+    padding-left: $space-8;
+
+    // 세로 타임라인 선
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--color-primary) 10%,
+        var(--color-primary) 90%,
+        transparent
+      );
+    }
+  }
+
+  &__item {
+    @include fade-up-init;
+    position: relative;
+    padding: $space-8;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: $border-radius-lg;
+    margin-bottom: $space-6;
+    transition: $transition-action;
+
+    // 타임라인 점
+    &::before {
+      content: '';
+      position: absolute;
+      left: calc(-#{$space-8} - 4px);
+      top: $space-8;
+      width: 8px;
+      height: 8px;
+      border-radius: $border-radius-full;
+      background-color: var(--color-primary);
+      box-shadow: 0 0 0 4px var(--color-bg);
+    }
+
+    &:hover {
+      border-color: var(--color-border-hover);
+      transform: translateX(4px);
+    }
+  }
+
+  &__chapter {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    color: var(--color-primary);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: $space-2;
+  }
+
+  &__item-title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: var(--color-text);
+    margin-bottom: $space-3;
+  }
+
+  &__item-desc {
+    font-size: $font-size-base;
+    color: var(--color-text-muted);
+    line-height: $line-height-base;
+  }
+}
+// E: Story 섹션
+
+// -----------------------------------------------------------------------------
+// S: Contact 섹션
+// -----------------------------------------------------------------------------
+.contact {
+  text-align: center;
+
+  &__email {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    font-family: $font-mono;
+    font-size: $font-size-lg;
+    color: var(--color-primary);
+    margin-top: $space-8;
+    padding: $space-4 $space-8;
+    border: 1px solid var(--color-primary);
+    border-radius: $border-radius-full;
+    transition: $transition-action;
+
+    &:hover {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-primary);
+    }
+  }
+}
+// E: Contact 섹션
+
+// -----------------------------------------------------------------------------
+// S: Hero 진입 애니메이션 (페이지 로드 시 순차 등장)
+// -----------------------------------------------------------------------------
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-anim {
+  opacity: 0;
+  animation: heroFadeUp 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--delay, 0ms);
+
+  // prefers-reduced-motion 접근성 대응
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 1;
+  }
+}
+// E: Hero 진입 애니메이션
+
+// -----------------------------------------------------------------------------
+// S: 스크롤 투 톱 버튼
+// -----------------------------------------------------------------------------
+.scroll-top {
+  @include flex(center, center);
+
+  // 레이아웃/위치
+  position: fixed;
+  right: $space-6;
+  bottom: $space-8;
+  z-index: $z-sticky;
+  width: 44px;
+  height: 44px;
+
+  // 타이포그래피
+  color: #FFFFFF;
+
+  // 배경/테두리
+  background-color: var(--color-primary);
+  border-radius: $border-radius-full;
+
+  // 기타
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  box-shadow: var(--shadow-primary);
+  transition: opacity 300ms ease,
+              transform 300ms ease;
+
+  &.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  @include respond-to('md') {
+    right: $space-4;
+    bottom: $space-6;
+  }
+}
+// E: 스크롤 투 톱 버튼
+
+// -----------------------------------------------------------------------------
+// S: 반응형 보정
+// -----------------------------------------------------------------------------
+
+// Story 타임라인 — 모바일
+@include respond-to('md') {
+  .story {
+    &__timeline {
+      padding-left: $space-6;
+    }
+
+    &__item {
+      padding: $space-6;
+
+      &::before {
+        left: calc(-#{$space-6} - 4px);
+      }
+    }
+
+    &__item-title {
+      font-size: $font-size-lg;
+    }
+  }
+}
+
+// Hero — 모바일
+@include respond-to('sm') {
+  .hero {
+    padding-block: $space-20;
+    text-align: center;
+
+    &__desc {
+      font-size: $font-size-base;
+      margin-bottom: $space-10;
+    }
+
+    &__stat {
+      padding: $space-4;
+    }
+
+    &__stat-number {
+      font-size: $font-size-2xl;
+    }
+  }
+}
+
+// xs (480px 이하) — 360px 최소 기준 보정
+@include respond-to('xs') {
+  .hero {
+    padding-block: $space-16;
+
+    &__stat {
+      padding: $space-3;
+    }
+
+    &__stat-number {
+      font-size: $font-size-xl;
+    }
+
+    &__stat-label {
+      font-size: 11px;
+    }
+  }
+
+  .contact {
+    &__email {
+      font-size: $font-size-sm;
+      padding: $space-3 $space-5;
+      word-break: break-all;
+    }
+  }
+}
+// E: 반응형 보정

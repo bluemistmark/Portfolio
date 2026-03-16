@@ -1,0 +1,85 @@
+// =============================================================================
+// components/_button.scss
+// 버튼 컴포넌트
+// =============================================================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.btn {
+  // @include — Mixin 먼저
+  @include flex(center, center);
+
+  // 레이아웃/위치
+  display: inline-flex;
+  gap: $space-2;
+  padding: $space-3 $space-6;
+
+  // 타이포그래피
+  font-family: $font-primary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  line-height: 1;
+  white-space: nowrap;
+
+  // 배경/테두리
+  border: 1px solid transparent;
+  border-radius: $border-radius-base;
+
+  // 기타
+  cursor: pointer;
+  transition: $transition-action;
+
+  // S: Primary 버튼
+  &--primary {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    border-color: var(--color-primary);
+
+    &:hover {
+      background-color: var(--color-primary-hover);
+      border-color: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-primary);
+    }
+  }
+  // E: Primary 버튼
+
+  // S: Outline 버튼
+  &--outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+
+    &:hover {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-primary);
+    }
+  }
+  // E: Outline 버튼
+
+  // S: Ghost 버튼
+  &--ghost {
+    background-color: transparent;
+    color: var(--color-text-muted);
+    border-color: transparent;
+
+    &:hover {
+      color: var(--color-text);
+      background-color: var(--color-surface);
+    }
+  }
+  // E: Ghost 버튼
+
+  // S: 비활성화
+  &.is-disabled,
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none;
+    box-shadow: none;
+  }
+  // E: 비활성화
+}
