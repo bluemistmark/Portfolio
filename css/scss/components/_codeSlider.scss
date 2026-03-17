@@ -2,8 +2,8 @@
 // components/_codeSlider.scss
 // Before / After 코드 비교 드래그 슬라이더
 // =============================================================================
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .code-slider {
   // 기본 분할 위치 — JS에서 --split 값을 동적으로 변경
@@ -11,13 +11,12 @@
 
   // 레이아웃/위치
   position: relative;
-  // overflow: hidden 대신 clip-path로 border-radius 유지하면서 핸들이 끝까지 이동 가능
-  overflow: visible;
   border-radius: $border-radius-lg;
+  overflow: hidden;
 
   // 코드 패널 영역만 border-radius 클리핑
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     border-radius: inherit;
@@ -47,8 +46,12 @@
   &.is-dragging {
     cursor: col-resize;
 
-    * { pointer-events: none; }
-    .code-slider__handle { pointer-events: auto; }
+    * {
+      pointer-events: none;
+    }
+    .code-slider__handle {
+      pointer-events: auto;
+    }
   }
   // E: 드래그 중 상태
 
@@ -119,12 +122,12 @@
 
     .code-slider__pane--before & {
       background-color: rgba(239, 68, 68, 0.15);
-      color: #F87171;
+      color: #f87171;
     }
 
     .code-slider__pane--after & {
       background-color: rgba(52, 211, 153, 0.15);
-      color: #34D399;
+      color: #34d399;
     }
   }
 
@@ -153,7 +156,7 @@
     tab-size: 2;
     white-space: pre;
 
-    @include respond-to('md') {
+    @include respond-to("md") {
       font-size: $font-size-xs;
       padding: $space-4;
     }
@@ -208,7 +211,7 @@
     height: 32px;
 
     // 타이포그래피
-    color: #FFFFFF;
+    color: #ffffff;
 
     // 배경/테두리
     background-color: var(--color-primary);
@@ -216,8 +219,9 @@
 
     // 기타
     box-shadow: var(--shadow-md);
-    transition: transform 200ms ease,
-                box-shadow 200ms ease;
+    transition:
+      transform 200ms ease,
+      box-shadow 200ms ease;
 
     .code-slider:hover &,
     .code-slider.is-dragging & {

@@ -483,8 +483,8 @@ h6 {
 .code-slider {
   --split: 50%;
   position: relative;
-  overflow: visible;
   border-radius: 12px;
+  overflow: hidden;
 }
 .code-slider::after {
   content: "";
@@ -501,9 +501,7 @@ h6 {
 }
 .code-slider {
   border: 1px solid var(--color-border);
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   cursor: col-resize;
   transition: border-color 200ms ease;
 }
@@ -560,11 +558,11 @@ h6 {
 }
 .code-slider__pane--before .code-slider__badge {
   background-color: rgba(239, 68, 68, 0.15);
-  color: #F87171;
+  color: #f87171;
 }
 .code-slider__pane--after .code-slider__badge {
   background-color: rgba(52, 211, 153, 0.15);
-  color: #34D399;
+  color: #34d399;
 }
 .code-slider__filename {
   font-family: "JetBrains Mono", monospace;
@@ -579,9 +577,7 @@ h6 {
   font-size: 0.875rem;
   line-height: 1.7;
   color: var(--color-code-text);
-  -moz-tab-size: 2;
-    -o-tab-size: 2;
-       tab-size: 2;
+  tab-size: 2;
   white-space: pre;
 }
 @media (max-width: 768px) {
@@ -628,7 +624,7 @@ h6 {
   z-index: 1;
   width: 32px;
   height: 32px;
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: var(--color-primary);
   border-radius: 9999px;
   box-shadow: var(--shadow-md);
@@ -1237,4 +1233,6 @@ h6 {
 }
 .notion-link__icon {
   font-size: 1.125rem;
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */
